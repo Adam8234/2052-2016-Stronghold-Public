@@ -1,21 +1,2 @@
-**PORT LISTING**
-
-MOTORS
-
-* FL Drive = 1
-
-* FR Drive = 2
-
-* BL Drive = 3
-
-* BR Drive = 4
-
-* RCMAN = CAN
-
-* Lift = CAN
-
-SOLENOIDS
-
-* RCMAN = 0,1
-
-* ToteStop = 6,7
+**2016**
+Instead of running everything in a loop. I decided to multi-thread and use state machines with control loops. Using method of controls instead allows your sub-systems to manipulate and talk to eachother.
