@@ -1,0 +1,32 @@
+<xml version="1.0">
+<dashboard>
+	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.VideoStreamViewerExtension">
+		<location x="435" y="35"/>
+		<width>947</width>
+		<height>711</height>
+		<property name="Camera IP Address or mDNS name" value="10.20.52.11"/>
+	</static-widget>
+	<widget field="auto_defence" type="String Chooser" class="edu.wpi.first.smartdashboard.gui.elements.Chooser">
+		<location x="8" y="108"/>
+		<property name="Use Radio Buttons" value="false"/>
+	</widget>
+	<widget field="Shooter Pressure" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="0"/>
+	</widget>
+	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.Label">
+		<location x="20" y="161"/>
+		<property name="Text" value="Defence Position"/>
+	</static-widget>
+	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.Label">
+		<location x="19" y="95"/>
+		<property name="Text" value="Auto Modes"/>
+	</static-widget>
+	<widget field="auto_position" type="String Chooser" class="edu.wpi.first.smartdashboard.gui.elements.Chooser">
+		<location x="13" y="176"/>
+		<property name="Use Radio Buttons" value="false"/>
+	</widget>
+</dashboard>
+<live-window>
+</live-window>
+	<hidden field="auto"/>
+</xml>

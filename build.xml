@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="FRC Deployment" default="deploy">
+
+	<!--
+  The following properties can be defined to override system level
+  settings. These should not be touched unless you know what you're
+  doing. The primary use is to override the wpilib version when
+  working with older robots that can't compile with the latest
+  libraries.
+  -->
+
+	<!-- By default the system version of WPI is used -->
+	<!-- <property name="version" value=""/> -->
+
+	<property name="team-number" value="2052" />
+
+	<!-- By default the target is set to 10.TE.AM.2 -->
+	<!-- <property name="target" value=""/> -->
+
+	<!-- Any other property in build.properties can also be overridden. -->
+
+	<property file="${user.home}/wpilib/wpilib.properties" />
+	<property file="build.properties" />
+	<property file="${user.home}/wpilib/java/${version}/ant/build.properties" />
+
+
+	<import file="${wpilib.ant.dir}/build.xml" />
+
+	<!-- Path deployment -->
+	<property name="scp_host" value="roborio-2052-frc.local" />
+	<property name="scp_user" value="lvuser" />
+	<property name="scp_password" value="" />
+	<property name="path_dir" value="/home/${scp_user}/paths/" />
+
+	<target name="deployPaths">
+		<sshexec command="mkdir -p ${path_dir}" host="${scp_host}" trust="true" username="${scp_user}" password="${scp_password}" />
+		<scp todir="${scp_user}@${scp_host}:${path_dir}" trust="true" password="${scp_password}">
+			<fileset dir="./paths" includes="**/*.txt" />
+		</scp>
+	</target>
+</project>
